@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 // Ruta para direccionamiento a la vista del formulario
 Route::get('/',[FormularioController::class,'create'])->name('formulario.create');
 // Ruta para enviar datos al servidor
-Route::post('/formulario', [FormularioController::class,'store'])->name('formulario.store');
+Route::post('/formulario/store', [FormularioController::class,'store'])->name('formulario.store');
 // Ruta para mostrar los pdf alamacenados
 Route::get('/formulario',[FormularioController::class,'show'])->name('formulario.show');
 // Ruta para eliminar el pdf

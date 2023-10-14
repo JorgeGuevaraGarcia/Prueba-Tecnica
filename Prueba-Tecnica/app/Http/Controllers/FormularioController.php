@@ -28,20 +28,21 @@ class FormularioController extends Controller
         $archivo = $request->file('nombre_archivo');
 
         if ($archivo && $archivo->isValid()) {
-            $nombreArchivo = $archivo->getClientOriginalName();
+            $hashName = $archivo->hashName();  // Obtén el hash del nombre del archivo
             $destino = public_path('/uploads');
-            
+    
             // Verifica si el directorio existe y si no, créalo
             if (!file_exists($destino)) {
                 mkdir($destino, 0755, true);
             }
     
-            $archivo->move($destino, $nombreArchivo);
+            $archivo->move($destino, $hashName);  // Mueve el archivo usando el hash del nombre del archivo
     
             Formulario::create([
                 'nombre' => $request->nombre,
-                'nombre_archivo' => $nombreArchivo,
+                'nombre_archivo' => $hashName,  // Guarda el hash del nombre del archivo en la base de datos
             ]);
+        
         }
         // Redireccionar a la vista de mostrar formulario con un mensaje de éxito
         return redirect()->route('formulario.show')->with('success', 'Archivo subido con éxito');
