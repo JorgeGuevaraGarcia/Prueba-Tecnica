@@ -9,7 +9,6 @@
     <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
-
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable({
@@ -18,7 +17,6 @@
             });
         });
     </script>
-    
 @endpush
 
 @section('contenido')
@@ -30,6 +28,7 @@
             </tr>
         </thead>
         <tbody>
+            {{-- Ciclo que iterara n cantidad de veces dependiendo de la cantidad de datos en la base de datos --}}
             @foreach ($formularios as $formulario)
             <tr>
                 <td>{{ $formulario->nombre }}</td>
@@ -52,13 +51,17 @@
     <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
         function showFile(nombre_archivo){
+            // Realiza una solicitud AJAX a una URL determinada, usando el método GET.
             $.ajax({
+                // La URL se construye dinámicamente.
                 url: "{{ route('formulario.archivo', '') }}/" + nombre_archivo,
                 type: "get",
                 dataType: "json",
             }).done(function(res){
+                // Si la solicitud AJAX se completa con éxito, abre una nueva pestaña o ventana del navegador
                 window.open(res.response.url,'_blank');
             }).fail(function(res){
+                // Si la solicitud AJAX falla, registra la respuesta en la consola del navegador.
                 console.log(res)
             });
         }

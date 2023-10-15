@@ -13,15 +13,15 @@
             {{-- no validate para validar cosas del lado del serivdor --}}
             <form action="{{route('formulario.store')}}" method="POST" enctype="multipart/form-data" novalidate>
                 {{-- csrf sirve para evitar ataques de bots y evitar llenar la tabla de datos basura --}}    
-                @csrf
                 {{-- Tambien crea un token seguro --}}
+                @csrf
                 @if(session('mensaje'))
                     <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">
                         {{session('mensaje')}}
                     </p>
                 @endif
 
-                {{-- Nombre del archivo --}}
+                {{-- Nombre documento --}}
                 <div class="mb-5">
                     <label for="nombre" class="mb-2 block uppercase text-cyan-700 font-bold">Nombre del archivo</label>
                     <input id="nombre" name="nombre" type="text" placeholder="Nombre del archivoo"

@@ -3,7 +3,6 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
         
         {{-- Titulo de la pagina --}}
         <title>@yield('titulo')</title>
@@ -15,8 +14,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" />  
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/dataTables.bootstrap5.min.css" />  
         <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>    
-
-
     </head>
     {{-- Cuerpo principal --}}
     <body class="m-0 font-sans text-base antialiased font-normal leading-default h-full">
@@ -38,14 +35,10 @@
                 </div>
             </div>
         </nav>
-
         <div class="min-h-full">
             <main class="container mx-auto mt-10">
                 @yield('contenido')
             </main>
         </div>
-
-    </body>
-
-    
+    </body> 
 </html>

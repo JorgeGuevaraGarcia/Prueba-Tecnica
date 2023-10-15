@@ -10,26 +10,26 @@ use Illuminate\Support\Facades\Storage;
 
 class FormularioTest extends TestCase
 {
-    use RefreshDatabase;  // Esto resetea la base de datos antes de cada prueba.
+    use RefreshDatabase;  // Resetea la base de datos antes de cada prueba.
 
     /** @test */
     public function a_user_can_submit_a_formulario()
     {
         // Preparación
-        Storage::fake('local');  // Fake the storage disk to prevent actual file uploads
-        $file = UploadedFile::fake()->create('document.pdf', 200);  // Create a fake file
+        Storage::fake('local');  // Se usa un almacenamiento falso para evitar que se suban archivos reales 
+        $file = UploadedFile::fake()->create('document.pdf', 200);  // Se crea un archivo falso
 
         $response = $this->post('/formulario/store', [
             'nombre' => 'John Doe',
             'nombre_archivo' => $file,
         ]);
 
- // Afirmaciones
- $response->assertRedirect(route('formulario.show'));  // Asegúrate de que hay una redirección correcta
- $this->assertDatabaseHas('formularios', [
-     'nombre' => 'John Doe',
-     'nombre_archivo' => $file->hashName(),  // Asegúrate de que el archivo se almacenó correctamente
- ]);
- $this->assertFileExists(public_path('uploads/' . $file->hashName()));  // Asegúrate de que el archivo se almacenó correctamente en el disco
+        // Afirmaciones
+        $response->assertRedirect(route('formulario.show'));  // Se agrega el redireccionamiento a la vista de las tablas
+        $this->assertDatabaseHas('formularios', [
+            'nombre' => 'John Doe',
+            'nombre_archivo' => $file->hashName(),  // Se verifica si el archvio se almaceno correctamente
+        ]);
+        $this->assertFileExists(public_path('uploads/' . $file->hashName()));  // Se verifica si l archivo se almaceno correctamente
     }
 }

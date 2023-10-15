@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[FormularioController::class,'create'])->name('formulario.create');
 // Ruta para enviar datos al servidor
 Route::post('/formulario/store', [FormularioController::class,'store'])->name('formulario.store');
-// Ruta para mostrar los pdf alamacenados
+// Ruta para mostrar los datos en el datatable
 Route::get('/formulario',[FormularioController::class,'show'])->name('formulario.show');
 // Ruta para eliminar el pdf
 Route::delete('/borrar/{formulario}', [FormularioController::class,'destroy'])->name('formulario.destroy');
