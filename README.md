@@ -18,7 +18,7 @@ Para crear la base de datos se encesitan el siguiente comando:
 ```
 CREATE DATABASE prueba_tecnica;
 ```
-Se necesita crear el usuario para la conección con la base de datos:
+Se necesita crear el usuario para la conexión con la base de datos:
 ```
 CREATE USER 'nombre_usuario'@'localhost' IDENTIFIED BY 'password';
 GRANT ALL PRIVILEGES ON prueba_tecnica.* TO 'nombre_usuario'@'localhost';
