@@ -13,8 +13,10 @@ Crear base de datos y usuario
 Entrar a mysql desde terminal
 ```
 mysql -u root
+```
 o
-mysql -u root -o
+```
+mysql -u root -p
 ```
 Para crear la base de datos se encesitan el siguiente comando:
 ```
