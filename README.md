@@ -7,6 +7,11 @@ git init
 git remote add origin https://github.com/JorgeGuevaraGarcia/Prueba-Tecnica.git
 git pull origin main
 ```
+Instalar composer
+-
+```
+composer install
+```
 
 Crear base de datos y usuario 
 - 
